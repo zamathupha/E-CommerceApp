@@ -1,0 +1,17 @@
+<div class="orders-container">
+    <h1>My Orders</h1>
+    
+    <div class="order-card" *ngFor="let order of orders; trackBy: trackByOrder">
+      <h3>Order ID: {{ order.id }}</h3>
+      <p><strong>Order Date:</strong> {{ order.date }}</p>
+      <p><strong>Items:</strong></p>
+      <ul>
+        <li *ngFor="let item of order.items">
+          {{ item.name }} - Quantity: {{ item.quantity }} - Price: ${{ item.price }}
+        </li>
+      </ul>
+      <p><strong>Total:</strong> ${{ order.total }}</p>
+      <button class="view-details-btn" (click)="viewOrderDetails(order.id)">View Details</button>
+    </div>
+  </div>
+  
